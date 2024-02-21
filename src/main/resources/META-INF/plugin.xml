@@ -1,18 +1,21 @@
 <!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
 <idea-plugin>
-    <id>org.jetbrains.plugins.template</id>
-    <name>IntelliJ Platform Plugin Template</name>
+    <id>com.sx.plugin</id>
+    <name>SxPlugin</name>
     <vendor>JetBrains</vendor>
 
     <depends>com.intellij.modules.platform</depends>
+    <depends>org.jetbrains.android</depends>
+    <depends>com.intellij.modules.androidstudio</depends>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
-
-    <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="org.jetbrains.plugins.template.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
-    </extensions>
 
     <applicationListeners>
         <listener class="org.jetbrains.plugins.template.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
     </applicationListeners>
+
+    <extensions defaultExtensionNs="com.android.tools.idea.wizard.template">
+        <wizardTemplateProvider implementation="sxtemplate.WizardTemplateProviderImpl" />
+    </extensions>
+
 </idea-plugin>
